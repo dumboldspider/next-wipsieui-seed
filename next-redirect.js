@@ -1,10 +1,10 @@
 async function redirect() {
   return [
-    {
-      source: "/",
-      destination: "/getting-started",
-      permanent: true,
-    },
+    // {
+    //   source: "/",
+    //   destination: "/getting-started",
+    //   permanent: true,
+    // },
   ];
 }
 

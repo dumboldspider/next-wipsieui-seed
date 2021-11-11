@@ -11,33 +11,32 @@ import {
   IconButton,
 } from "@wipsie/ui";
 import { Sun, Moon, Star } from "react-feather";
-import useLocalStorage from "../hooks/useLocalStorage";
-// import useLocalTheme from "../hooks/theme/useTheme";
+import { useSelector, useDispatch } from "react-redux";
+import { setCurrentTheme } from "../redux/slices/settings";
 
 export default function ThemeSwitch(props: any) {
   const theme = useTheme();
-  const { currentTheme, setCurrentTheme } = props;
-  // const { setCurrentTheme, currentTheme } = useLocalTheme();
-  // const [currentTheme, handleThemeChange] = useLocalStorage("_theme", "light");
+  const settings = useSelector((state: any) => state.settings);
+  const dispatch = useDispatch();
 
   return (
     <ButtonGroup size="mini">
       <IconButton
-        variant={currentTheme === "light" ? "outlined" : "contained"}
-        onClick={() => setCurrentTheme("light")}
+        variant={settings.theme === "light" ? "outlined" : "contained"}
+        onClick={() => dispatch(setCurrentTheme("light"))}
       >
         <Sun />
       </IconButton>
       <IconButton
-        variant={currentTheme === "dark" ? "outlined" : "contained"}
-        onClick={() => setCurrentTheme("dark")}
+        variant={settings.theme === "dark" ? "outlined" : "contained"}
+        onClick={() => dispatch(setCurrentTheme("dark"))}
       >
         <Moon />
       </IconButton>
       <IconButton
-        variant={currentTheme === "cosmic" ? "outlined" : "contained"}
+        variant={settings.theme === "cosmic" ? "outlined" : "contained"}
         onClick={() => {
-          setCurrentTheme("cosmic");
+          dispatch(setCurrentTheme("cosmic"));
         }}
       >
         <Star />

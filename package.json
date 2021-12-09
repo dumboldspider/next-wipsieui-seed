@@ -13,7 +13,7 @@
     "@wipsie/ui": "^1.0.160",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
-    "next": "12.0.3",
+    "next": "12.0.5",
     "nookies": "^2.5.2",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
